@@ -1,0 +1,2 @@
+'use strict';Vue.component('awe-errmon',{props:{},data:function(){return{err:null,i18n:this.$root.i18n}},methods:{show:function(r){this.err=r},clear:function(){this.err!==ErrorCodes.INVALID_TOUCHPOINT_ERROR&&this.err!==ErrorCodes.DISABLED_ERROR&&(this.err=null)}},template:'\n    <div v-if="err" id="errMon" :class="err" role="presentation">\n      <div id="err-overlay" role="presentation"></div>\n      <div id="err-msg" role="alert">{{i18n.getString(err)}}</div>\n    </div>\n  '});
+//# sourceMappingURL=errmon.js.map

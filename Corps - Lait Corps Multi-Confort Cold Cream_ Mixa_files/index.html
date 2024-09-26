@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://widgets.swaven.com/awe/1/88ea3c9/std/index.html -->
+<html lang="fr" dir="ltr" class="fixed-height"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <title>AWE</title>
+  <script defer="" src="./vue.js.téléchargement" integrity="sha384-05dHfbm/L0COkFLQ5ghEDllrtj0kD1/46h3bAPxuPjWq9/IDglEo6RtZefYkYfpk"></script>
+  <script defer="" src="./utils.js.téléchargement" integrity="sha384-wrOcy67ooZ8sWIRlA+X3ya8KPTCZTM3Lx8Ri58Pyy9Iwqt0rpODKG2oPIq8VrtiC"></script>
+  <script defer="" src="./hostCom.js.téléchargement" integrity="sha384-dtZpGGSD+cFyskdAIJqdhXitoGwGnbu929RNXvd7Why9wv5DDenr2oxTZURDzkrg"></script>
+  <script defer="" src="./appInit.js.téléchargement" integrity="sha384-nBiRiTwc2vOpd/H+9sFnEbLJzAMk1uiVSHapsvLPHiIqyewAOw8yXkcKstt1U/xE"></script>
+  <script defer="" src="./mapping.js.téléchargement" integrity="sha384-Zc37OVyeCyG71kLnTzi/81XSaTOkULA4QgGdATixviBm/7N+AYNG7tOu8h6FTfKY"></script>
+  <script defer="" src="./daco.js.téléchargement" integrity="sha384-+bku/WtAP9vvzvXzXoGmXcmOatHsITzn0jyCIbA3pthWaH+HyIXRzYkg3iqQoyxR"></script>
+  <script defer="" src="./i18n.js.téléchargement" integrity="sha384-RT9Fqgv0mCigLAICkozAq3Rxy9f+piFSoFe5R+Wn18/vaIxTYJp9UN7SYBTEqtx8"></script>
+  <script defer="" src="./app.js.téléchargement" integrity="sha384-749nY4SMwEcyifTCd+p2lZG2IQ7yvRpYQqgcFwoGjZd/UO+mwyQSpkyI/7xZnHym"></script>
+  <script defer="" src="./swaven-link.js.téléchargement" integrity="sha384-4IBAmu7rb8w1aRkBBw9bkaiNmxUJjYuwjMvuy45vOoyxVxA/b428sLV1st9a+gKp"></script>
+  <script defer="" src="./termsofuse.js.téléchargement" integrity="sha384-c4S4DFp+paCYhe3CxEG/ZUG+bixA3GsyEcuzky4gTvbh+QIuDRAECzhCtqTKAfnA"></script>
+  <script defer="" src="./warning.js.téléchargement" integrity="sha384-91BijiBL/E26kSRqB72/T+VkbdLMmiXW2zM/S9KI7e0YY0h8IAy1EH7ffJ8UbNDv"></script>
+  <script defer="" src="./errmon.js.téléchargement" integrity="sha384-PEjx46xzoPMU8b4m/ClMLwtIRCQjOii1pHrBszm9FUmxTFu7+OfJhf7xTkxnor5t"></script>
+  <link rel="stylesheet" href="./default.css" integrity="sha384-RFFRoftzBnuqJNudu6sfgniYccpT5nd/SM0LM5Q/dG+SkJOXH9Jec1s0zRKq2d5C">
+<script>appDefinition.mixins.push({computed:{displayedAvails:function(){let displayedStores;if('retailer'===this.customProps.availsView)displayedStores=this.byTypologyAvailabilities;else if(displayedStores=this.availabilities.filter((function(x){return x.priority})),displayedStores.length<MIN_STORES&&this.customProps.fillStores){let moreStores=this.availabilities.filter((function(x){return!x.priority}));displayedStores=displayedStores.concat(moreStores.slice(0,MIN_STORES-displayedStores.length))}return displayedStores}}});</script><script>const MIN_STORES=10,THRESHOLD_MOBILE=630,THRESHOLD_LARGE=950;let initDone=!1;function buildCustomMessages(localeConf,params){const ids={BUY:'buyBtnTxt',LOCATE:'locBtnTxt',SHOWROUTE:'routeBtnTxt',HEADERLOGO:'headerLogo',HEADERLABEL:'headerLabel',CUSTOMLINK:'customLink',CUSTOMLINKURL:'customLinkUrl',NOSTORE_ERROR:'noStoreMsg'},messages={};return Object.keys(ids).forEach((function(id){const propName=ids[id],msg=localeConf[propName]||params[propName];msg&&(messages[id]=msg)})),messages}window.addEventListener('app-init',(function(e){initDone=!0;const params=e.detail.params,locale=e.detail.locale,localeConf=params.localesConf[locale]||{},customMessages=buildCustomMessages(localeConf,params);Object.keys(customMessages).length>0&&i18n.addTexts(locale,customMessages),Vue.set(app.customProps,'hidePrdImgOnMobile',params.hidePrdImgOnMobile),Vue.set(app.customProps,'hidePrdOnMobile',params.hidePrdOnMobile),Vue.set(app.customProps,'closeBtn',params.closeBtn),Vue.set(app.customProps,'displayProductPanel',params.displayProductPanel),Vue.set(app.customProps,'noOffline',params.noOffline),Vue.set(app.customProps,'showTermsOfUse',params.showTermsOfUse),Vue.set(app.customProps,'modeStoreLocator',params.modeStoreLocator),Vue.set(app.customProps,'noStoreInfo',params.noStoreInfo),Vue.set(app.customProps,'fillStores',params.fillStores),Vue.set(app.customProps,'prdListShadowed',params.prdListShadowed),Vue.set(app.customProps,'useHDLogos',params.useHDLogos),Vue.set(app.customProps,'mobileFullscreen',params.mobileFullscreen),Vue.set(app.customProps,'headerLogo',params.headerLogo);const availView=e.detail.wtbConf.widgetclientparams&&e.detail.wtbConf.widgetclientparams.params['availabilities-view'];Vue.set(app.customProps,'availsView',availView||'store'),window.addEventListener('products-update',(function(){app.products.forEach((function(prd){prd.label=localeConf.productLabelPattern||params.productLabelPattern||'{{pdescr}}',prd.listLabel=localeConf.prdListItemLabelPattern||params.prdListItemLabelPattern||'{{pname}}',Utils.sanitizeProduct(prd)}))})),!app.isPopin&&window.innerWidth<=630&&(app.addEventListener('map-show',(function(){hostCom.send('awe:toggleFullScreen',{hideHostScroll:!0})})),app.addEventListener('map-close',(function(){hostCom.send('awe:toggleFullScreen',{hideHostScroll:!1})})))}),{once:!0});</script><script src="./autocomplete.js.téléchargement" integrity="sha384-VRjO4SLQ5S5bfl9G5uegC1Om1KHYYClnR7fdxzPHxGQnBoqNO9A7lZvtMuXG49JP"></script><script src="./carousel.js.téléchargement" integrity="sha384-XarHQXYSu21tbOy2Zmh8MGu3RJxmR7s4blo23SoaTSG8DdjkysCvaZ4mErVkPHjk"></script><script src="./loader(1).js.téléchargement" integrity="sha384-SfFnP1SaiD+gr77VT6DoKXHeQXFbXijVSnWEuE7x7QDnBGFikGmU73aTCT6kekEp"></script><script src="./map.js.téléchargement" integrity="sha384-COcONB3Mweb5gfjJABupaxu5KAiWTiDDF9sEaGkL6enneuhl/dxDPG3/01Pr/ol7"></script><script src="./product-filters.js.téléchargement" integrity="sha384-B4Qvh47j693uN7s7xrHv9ui/6RuB43bCCw/cDweZA2+Mvub+IRQWGPd0NdCsZ8C4"></script><script src="./script.min.js.téléchargement" integrity="sha384-g7pG1GjLfGqnh+jr061Xa+M5mlCkGLEJ0gh1qbDr4OBkaSSnC+O+P5racE/2JZD6"></script><script src="./elementQueries.js.téléchargement"></script><style type="text/css">[responsive-image] > img, [data-responsive-image] {overflow: hidden; padding: 0; } [responsive-image] > img, [data-responsive-image] > img {width: 100%;}
+@keyframes element-queries { 0% { visibility: inherit; } }
+.avail {animation: 0.1s element-queries;}
+.avail > .resize-sensor {min-width: 0px;}
+.avail.lockdown {animation: 0.1s element-queries;}
+.avail.lockdown > .resize-sensor {min-width: 1px;}
+body:not(.rtl) .avail {animation: 0.1s element-queries;}
+body:not(.rtl) .avail > .resize-sensor {min-width: 2px;}
+body.rtl .avail {animation: 0.1s element-queries;}
+body.rtl .avail > .resize-sensor {min-width: 3px;}</style></head>
+<body class="ltr">
+  <!-- App container -->
+  <div id="app-ctnr" role="dialog" aria-description="Ce widget vous permet de rechercher un produit parmi la liste et de voir où il est disponible en ligne ou hors ligne près de chez vous." class="fr ct-fr popin" aria-label="Where to find the product widget" data-mobile-fullscreen="true"><meta name="build" content="da63284_ad7c"> <link href="./style.css" rel="stylesheet" integrity="sha384-t+qmzkYeUxKrDUSPkMTFSFqJDgbYg4qyZVORyYl6//ARr/eLUC/aymF3Z+AvOkN5"><link href="./css" rel="stylesheet"><div id="header" class="has-close-btn has-header-logo"><img src="./MIXA-logo-4.png" class="header-logo"><div class="locbar"><div class="place-autocomplete"><i class="icon icon-search"></i><input id="address" autocomplete="off" role="searchbox" aria-label="Indiquez un lieu pour trouver les points de vente près de chez vous" type="text"><ol id="_autocomplete" role="listbox" class="hidden"></ol></div><span id="autoloc" aria-label="Déterminez automatiquement votre localisation" tabindex="0" role="button" class="icon icon-ccw"></span></div><!----><div role="button" tabindex="0" aria-label="Fermer le widget" id="close" class="close-btn"><span class="icon icon-cancel"></span></div></div><!----><!----><div id="lp-ctnr"><div class="carousel" id="carousel"><div name="left-btn" tabindex="0" class="scroll-btn left disabled hidden"></div> <div class="scroll-ctnr"><div role="list" class="content" style="transform: translateX(0px);"></div></div> <div name="right-btn" tabindex="0" class="scroll-btn right hidden"></div></div><div id="product" role="main" class=""><div id="prd-tmpl"><!----><span class="prd-descr"></span></div></div><div id="avails"></div><div class="map" role="none" style="overflow: hidden; display: none;"><div class="_map-ctnr"></div>  <div class="store-markers"></div>  <div class="map-controls"><div role="button" aria-label="Fermer la carte" class="control map-close icon-cancel-1"></div> <!----></div> <div id="map-messages" style="display: none;"><!----> <div class="map-moved-btn" style="display: none;">Chercher dans cette zone</div></div></div><div class="copyright"><!----><a href="https://www.mikmak.com/legal/privacypolicy/?utm_source=pop&amp;utm_medium=st&amp;utm_campaign=535e2554bdfdf33a22f564d0" target="_blank" title="Conditions d&#39;utilisation" class="termsofuse">Conditions d'utilisation</a><a title="MikMak" alt="MikMak" href="https://www.mikmak.com/?utm_source=pop&amp;utm_medium=ST&amp;utm_campaign=535e2554bdfdf33a22f564d0" target="_blank" class="swaven-link"><img src="./mikmak-favicon-teal.png" alt="MikMak" height="15" width="15"></a></div></div><div role="presentation" class="loader" style="display: none;"><div role="presentation" class="loader-overlay"></div> <span role="presentation" class="spinner"><div></div> <div></div> <div></div> <div></div></span></div><!----><!----></div>
+
+
+<style id="legacy-custom-style">.map-btn{	border-radius: 0px !important;
+}
+#header .close-btn .icon-cancel{	border-radius: 0px !important;
+	color: #ffffff !important;
+}
+.locbar #autoloc{	border-radius: 0px !important;
+	color: #ffffff !important;
+}
+.buy-btn{	border-radius: 0px !important;
+}
+.locate-btn{	border-radius: 0px !important;
+}
+.locbar #address{	border-radius: 0px !important;
+}
+#carousel .pdt{	border-radius: 0px !important;
+	border-radius: 0px !important;
+}
+#carousel{	border-radius: 0px !important;
+	border-radius: 0px !important;
+}
+#product{	border-radius: 0px !important;
+	border-color: #007FC1 !important;
+	border-radius: 0px !important;
+}
+#product:after{	border-radius: 0px !important;
+	border-color: #007FC1 !important;
+	border-radius: 0px !important;
+}
+#avails{	border-radius: 0px !important;
+	border-radius: 0px !important;
+	border-color: #007FC1 !important;
+}
+.buy-btn:not(.disabled){	background: #FFA780 !important;
+	border-color: #FFA780 !important;
+}
+#avails::-webkit-scrollbar-thumb{	background: #FFA780 !important;
+}
+.locate-btn:not(.disabled){	color: #FFA780 !important;
+	border-color: #FFA780 !important;
+}
+.buy-btn:not(.disabled):hover{	background: #FCC1A6 !important;
+	border-color: #FCC1A6 !important;
+}
+.buy-btn:not(.disabled):focus{	background: #FCC1A6 !important;
+	border-color: #FCC1A6 !important;
+}
+.locate-btn:not(.disabled):hover{	color: #FCC1A6 !important;
+	border-color: #FCC1A6 !important;
+}
+.locate-btn:not(.disabled):focus{	color: #FCC1A6 !important;
+	border-color: #FCC1A6 !important;
+}
+.prd-descr{	text-align: center !important;
+}
+#carousel .pdt:hover{	border: 1px solid #007FC1 !important;
+}
+#carousel .pdt:focus{	border: 1px solid #007FC1 !important;
+}
+#carousel .pdt.selected{	border: 1px solid #007FC1 !important;
+}
+.loader{	color: #007FC1 !important;
+}
+#header{	color: #ffffff !important;
+	background: #FFA780 !important;
+}</style></body></html>
